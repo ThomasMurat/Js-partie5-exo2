@@ -15,17 +15,17 @@
                 <label for="confirmPassword">Confirmer le mot de passe:</label>
                 <input class="form-control" type="password" id="confirmPassword" placeholder="Confirmer le mot de passe" required />
             </div>
-            <button type="submit" onclick='checkPass();' class="btn btn-primary">Valider</button>
+            <button type="button" onclick='checkPass();' class="btn btn-primary">Valider</button>
         </form>
         <script>
             function checkPass() {
-                var pass = document.getElementById('password').value, confirmPass = document.getElementById('confirmPassword').value;
-                if (pass == confirmPass) {
-                    document.getElementById('password').style.borderColor = "green";event.preventDefault();
-                    document.getElementById('confirmPassword').style.borderColor = "green";event.preventDefault();
+                var pass = document.getElementById('password'), confirmPass = document.getElementById('confirmPassword');
+                if (pass.value == confirmPass.value) {
+                    pass.setAttribute('class', 'form-control border border-success');
+                    confirmPass.setAttribute('class', 'form-control border border-success');
                 } else {
-                    document.getElementById('password').style.borderColor = "red";event.preventDefault();
-                    document.getElementById('confirmPassword').style.borderColor = "red";event.preventDefault();
+                    pass.setAttribute('class', 'form-control border border-danger');
+                    confirmPass.setAttribute('class', 'form-control border border-danger');
                 }
             }
         </script>
